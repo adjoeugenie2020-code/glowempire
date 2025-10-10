@@ -86,9 +86,8 @@ const Home = () => {
       Nos Pôles d’Excellence
     </h2>
     <p className="text-gray-700 max-w-3xl mx-auto">
-      Chaque pôle incarne une dimension essentielle de notre savoir-faire :
-      communication, digital, création et stratégie unies pour façonner votre
-      réussite.
+      Nous combinons créativité, stratégie et innovation pour bâtir des marques
+      fortes, uniques et durables.
     </p>
     <div className="w-20 h-1 bg-gold mx-auto mt-6 rounded-full"></div>
   </div>
@@ -101,17 +100,18 @@ const Home = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: index * 0.1 }}
         viewport={{ once: true }}
-        className="relative rounded-2xl p-10 text-center overflow-hidden shadow-[0_0_30px_#00000015] bg-gradient-to-b from-[#0A0A1A] to-[#01010A]"
+        className="relative rounded-2xl p-10 text-center overflow-hidden shadow-[0_0_25px_#00000025] 
+                   bg-gradient-to-br from-[#000814] via-[#001D3D] to-[#000814] border border-white/10"
       >
-        {/* Animation “halo de lune” */}
+        {/* Halo lunaire animé */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-40 h-40 bg-gradient-radial from-white/10 to-transparent rounded-full blur-3xl animate-pulse-slow"></div>
+          <div className="w-48 h-48 bg-gradient-radial from-white/10 to-transparent rounded-full blur-3xl animate-pulse-slow"></div>
         </div>
 
         {/* Contenu */}
         <div className="relative z-10">
           <div
-            className={`w-16 h-16 mx-auto mb-6 rounded-2xl flex items-center justify-center bg-gradient-to-br ${service.color} shadow-[0_0_30px_#FFD70040]`}
+            className={`w-16 h-16 mx-auto mb-6 rounded-2xl flex items-center justify-center bg-gradient-to-br ${service.color} shadow-[0_0_25px_#FFD70050]`}
           >
             <service.icon className="w-8 h-8 text-white" />
           </div>
@@ -121,38 +121,32 @@ const Home = () => {
 
           {service.title === 'Communication' && (
             <p className="text-white/70">
-              Élaboration de stratégies, branding et storytelling pour donner
-              une voix authentique à votre marque.
+              Élaboration de stratégies impactantes, branding cohérent et storytelling visuel pour renforcer votre image.
             </p>
           )}
           {service.title === 'Digital' && (
             <p className="text-white/70">
-              Création de sites web modernes, gestion sociale et campagnes
-              digitales performantes.
+              Conception de sites web modernes, gestion des réseaux sociaux et campagnes numériques performantes.
             </p>
           )}
           {service.title === 'Créatif' && (
             <p className="text-white/70">
-              Design graphique, identité visuelle et créations artistiques qui
-              marquent les esprits.
+              Design graphique, identité visuelle, photos et vidéos captivantes pour exprimer l’âme de votre marque.
             </p>
           )}
           {service.title === 'Coaching' && (
             <p className="text-white/70">
-              Formations et accompagnement pour développer le leadership et
-              l’expression créative.
+              Accompagnement personnalisé pour révéler la créativité et la confiance de vos équipes.
             </p>
           )}
           {service.title === 'Stratégie' && (
             <p className="text-white/70">
-              Études de marché, positionnement et plans d’action précis pour un
-              impact durable.
+              Études de marché, positionnement et plans d’action efficaces pour atteindre vos objectifs.
             </p>
           )}
           {service.title === 'Innovation' && (
             <p className="text-white/70">
-              Intégration des technologies émergentes pour faire évoluer votre
-              marque dans le futur.
+              Exploration de nouvelles idées et intégration de technologies pour anticiper les tendances de demain.
             </p>
           )}
         </div>
@@ -161,7 +155,7 @@ const Home = () => {
   </div>
 </section>
 
-{/* Animation personnalisée pour halo lunaire */}
+{/* Animation pour le halo lunaire */}
 <style jsx>{`
   @keyframes pulse-slow {
     0% {
