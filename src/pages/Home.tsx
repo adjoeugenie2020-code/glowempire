@@ -79,20 +79,16 @@ const Home = () => {
       {/* === SERVICES === */}
 <section
   id="services"
-  className="relative py-24 px-8 bg-[#050512] text-white overflow-hidden"
+  className="relative py-24 px-8 bg-white text-deepBlue overflow-hidden"
 >
-  {/* Lumières d’ambiance globales */}
-  <div className="absolute inset-0">
-    <div className="absolute top-20 left-40 w-[500px] h-[500px] bg-gold/10 rounded-full blur-[200px]"></div>
-    <div className="absolute bottom-0 right-40 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[200px]"></div>
-  </div>
-
   <div className="relative z-10 max-w-6xl mx-auto text-center mb-20">
     <h2 className="text-4xl font-extrabold text-gold mb-4 tracking-wide">
       Nos Pôles d’Excellence
     </h2>
-    <p className="text-white/70 max-w-3xl mx-auto">
-      Nous allions créativité, stratégie et innovation pour donner vie à des marques fortes et durables.
+    <p className="text-gray-700 max-w-3xl mx-auto">
+      Chaque pôle incarne une dimension essentielle de notre savoir-faire :
+      communication, digital, création et stratégie unies pour façonner votre
+      réussite.
     </p>
     <div className="w-20 h-1 bg-gold mx-auto mt-6 rounded-full"></div>
   </div>
@@ -101,14 +97,16 @@ const Home = () => {
     {services.map((service, index) => (
       <motion.div
         key={index}
-        whileHover={{ scale: 1.04 }}
-        transition={{ duration: 0.3 }}
-        className="relative bg-[#0B0B16] rounded-2xl p-10 text-center shadow-[0_0_20px_#000] border border-white/10 overflow-hidden group"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: index * 0.1 }}
+        viewport={{ once: true }}
+        className="relative rounded-2xl p-10 text-center overflow-hidden shadow-[0_0_30px_#00000015] bg-gradient-to-b from-[#0A0A1A] to-[#01010A]"
       >
-        {/* Halo lumineux doux derrière chaque grid */}
-        <div
-          className={`absolute -inset-0.5 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-80 blur-[80px] transition-all duration-500`}
-        ></div>
+        {/* Animation “halo de lune” */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-40 h-40 bg-gradient-radial from-white/10 to-transparent rounded-full blur-3xl animate-pulse-slow"></div>
+        </div>
 
         {/* Contenu */}
         <div className="relative z-10">
@@ -123,38 +121,38 @@ const Home = () => {
 
           {service.title === 'Communication' && (
             <p className="text-white/70">
-              Élaboration de stratégies de communication percutantes, branding
-              cohérent et storytelling visuel pour renforcer votre image.
+              Élaboration de stratégies, branding et storytelling pour donner
+              une voix authentique à votre marque.
             </p>
           )}
           {service.title === 'Digital' && (
             <p className="text-white/70">
-              Création de sites web, gestion des réseaux sociaux et campagnes
-              digitales pour propulser votre marque en ligne.
+              Création de sites web modernes, gestion sociale et campagnes
+              digitales performantes.
             </p>
           )}
           {service.title === 'Créatif' && (
             <p className="text-white/70">
-              Conception graphique, identité visuelle, vidéos et designs uniques
-              qui captivent et inspirent.
+              Design graphique, identité visuelle et créations artistiques qui
+              marquent les esprits.
             </p>
           )}
           {service.title === 'Coaching' && (
             <p className="text-white/70">
-              Accompagnement personnalisé pour révéler le potentiel créatif et
-              stratégique de vos équipes.
+              Formations et accompagnement pour développer le leadership et
+              l’expression créative.
             </p>
           )}
           {service.title === 'Stratégie' && (
             <p className="text-white/70">
-              Analyse de marque, positionnement et plan d’action sur mesure pour
-              des résultats mesurables.
+              Études de marché, positionnement et plans d’action précis pour un
+              impact durable.
             </p>
           )}
           {service.title === 'Innovation' && (
             <p className="text-white/70">
-              Intégration de nouvelles technologies et idées créatives pour
-              anticiper les tendances du marché.
+              Intégration des technologies émergentes pour faire évoluer votre
+              marque dans le futur.
             </p>
           )}
         </div>
@@ -162,6 +160,28 @@ const Home = () => {
     ))}
   </div>
 </section>
+
+{/* Animation personnalisée pour halo lunaire */}
+<style jsx>{`
+  @keyframes pulse-slow {
+    0% {
+      transform: scale(1);
+      opacity: 0.5;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0.5;
+    }
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 6s ease-in-out infinite;
+  }
+`}</style>
 
 
       {/* === ABOUT === */}
