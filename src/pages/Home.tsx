@@ -30,7 +30,7 @@ const Home = () => {
             transition={{ duration: 0.8 }}
             className="text-5xl md:text-6xl font-extrabold leading-tight"
           >
-            GLOW EMPIRE <span className="text-gold">votre empire</span> digital
+            Faites briller <span className="text-gold">votre empire</span> digital
           </motion.h1>
 
           <p className="text-white/80 max-w-md">
