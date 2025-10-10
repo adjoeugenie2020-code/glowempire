@@ -77,28 +77,46 @@ const Home = () => {
       </section>
 
       {/* === SERVICES === */}
-      <section id="services" className="py-24 px-8 bg-[#F5F5F5] text-deepBlue">
-        <div className="max-w-6xl mx-auto text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Nos Pôles d’Excellence</h2>
-          <div className="w-20 h-1 bg-gold mx-auto"></div>
+<section id="services" className="relative py-24 px-8 bg-[#01010A] text-white overflow-hidden">
+  {/* Halo global doux */}
+  <div className="absolute inset-0">
+    <div className="absolute top-0 left-20 w-[400px] h-[400px] bg-gold/10 rounded-full blur-[180px]"></div>
+    <div className="absolute bottom-0 right-20 w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[180px]"></div>
+  </div>
+
+  <div className="relative max-w-6xl mx-auto text-center mb-20 z-10">
+    <h2 className="text-4xl font-bold text-gold mb-4 tracking-wide">Nos Pôles d’Excellence</h2>
+    <div className="w-20 h-1 bg-gold mx-auto rounded-full"></div>
+  </div>
+
+  <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto z-10">
+    {services.map((service, index) => (
+      <motion.div
+        key={index}
+        whileHover={{ scale: 1.07 }}
+        transition={{ duration: 0.3 }}
+        className="relative group bg-[#0B0B16] border border-white/10 rounded-2xl p-10 text-center shadow-[0_0_25px_#000] overflow-hidden"
+      >
+        {/* Halo lumineux derrière la carte */}
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500">
+          <div className={`absolute -inset-1 bg-gradient-to-br ${service.color} rounded-2xl blur-2xl opacity-60 animate-pulse`}></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ scale: 1.05 }}
-              className="relative bg-white rounded-2xl p-8 text-center shadow-xl overflow-hidden"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-white via-gold/5 to-white opacity-30 blur-2xl"></div>
-              <div className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-2xl flex items-center justify-center mx-auto mb-6`}>
-                <service.icon className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-semibold">{service.title}</h3>
-            </motion.div>
-          ))}
+        {/* Contenu */}
+        <div className="relative z-10 flex flex-col items-center">
+          <div className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-2xl flex items-center justify-center mb-6 shadow-[0_0_20px_#FFD70060]`}>
+            <service.icon className="w-8 h-8 text-white" />
+          </div>
+          <h3 className="text-xl font-semibold text-gold mb-2">{service.title}</h3>
+          <p className="text-white/70 text-sm">
+            Découvrez nos solutions {service.title.toLowerCase()} alliant innovation et excellence.
+          </p>
         </div>
-      </section>
+      </motion.div>
+    ))}
+  </div>
+</section>
+
 
       {/* === ABOUT === */}
       <section className="py-24 px-8 bg-gradient-to-r from-[#000814] via-[#001D3D] to-[#000814] text-center">
