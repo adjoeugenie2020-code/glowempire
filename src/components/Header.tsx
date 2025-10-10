@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Sparkles } from 'lucide-react';
 
@@ -9,6 +9,7 @@ interface HeaderProps {
 
 const Header = ({ currentPage, onNavigate }: HeaderProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const navItems = [
     { name: 'Accueil', page: 'home' },
@@ -24,14 +25,24 @@ const Header = ({ currentPage, onNavigate }: HeaderProps) => {
     setIsOpen(false);
   };
 
+  // 🔄 Animation automatique des menus toutes les 10 secondes
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % navItems.length);
+    }, 10000);
+    return () => clearInterval(interval);
+  }, [navItems.length]);
+
   return (
     <>
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
         className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-lg"
       >
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+          {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
             className="flex items-center gap-2 cursor-pointer"
@@ -43,24 +54,43 @@ const Header = ({ currentPage, onNavigate }: HeaderProps) => {
             </span>
           </motion.div>
 
+          {/* Navigation Desktop */}
           <nav className="hidden lg:flex items-center gap-8">
-            {navItems.map((item) => (
+            {navItems.map((item, index) => (
               <motion.button
                 key={item.page}
                 onClick={() => handleNavigate(item.page)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className={`font-semibold transition-colors ${
-                  currentPage === item.page
-                    ? 'text-gold'
-                    : 'text-deepBlue hover:text-gold'
-                }`}
+                animate={{
+                  scale: activeIndex === index ? 1.1 : 1,
+                  color:
+                    currentPage === item.page
+                      ? '#D4AF37' // or
+                      : activeIndex === index
+                      ? '#D4AF37'
+                      : '#001D3D',
+                }}
+                transition={{
+                  duration: 0.6,
+                  ease: 'easeInOut',
+                }}
+                className="font-semibold transition-colors"
               >
                 {item.name}
               </motion.button>
             ))}
+
+            {/* ✅ Bouton “Demander un devis” */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => handleNavigate('contact')}
+              className="bg-gold text-white px-5 py-2 rounded-xl font-semibold shadow-md hover:shadow-lg transition-all"
+            >
+              Demander un devis
+            </motion.button>
           </nav>
 
+          {/* Menu Mobile */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="lg:hidden text-deepBlue p-2"
@@ -71,6 +101,7 @@ const Header = ({ currentPage, onNavigate }: HeaderProps) => {
         </div>
       </motion.header>
 
+      {/* Menu Mobile Déroulant */}
       <AnimatePresence>
         {isOpen && (
           <>
@@ -110,18 +141,38 @@ const Header = ({ currentPage, onNavigate }: HeaderProps) => {
                     <motion.button
                       key={item.page}
                       initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
+                      animate={{
+                        opacity: 1,
+                        x: 0,
+                        scale: activeIndex === index ? 1.1 : 1,
+                        backgroundColor:
+                          currentPage === item.page
+                            ? '#D4AF37'
+                            : activeIndex === index
+                            ? '#D4AF37'
+                            : 'transparent',
+                      }}
                       transition={{ delay: index * 0.1 }}
                       onClick={() => handleNavigate(item.page)}
-                      className={`w-full text-left px-4 py-3 rounded-xl font-semibold transition-all ${
+                      className={`w-full text-left px-4 py-3 rounded-xl font-semibold ${
                         currentPage === item.page
-                          ? 'bg-gold text-deepBlue'
+                          ? 'text-deepBlue'
                           : 'text-white hover:bg-white/10'
                       }`}
                     >
                       {item.name}
                     </motion.button>
                   ))}
+
+                  {/* ✅ Bouton “Demander un devis” mobile */}
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => handleNavigate('contact')}
+                    className="w-full mt-4 bg-gold text-white px-5 py-3 rounded-xl font-semibold shadow-md"
+                  >
+                    Demander un devis
+                  </motion.button>
                 </nav>
               </div>
             </motion.div>
