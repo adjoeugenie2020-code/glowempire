@@ -1,16 +1,16 @@
 import { motion } from 'framer-motion';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-br from-deepBlue to-royalBlue py-12">
-      <div className="max-w-7xl mx-auto px-4">
+    <footer className="relative bg-gradient-to-br from-deepBlue to-royalBlue pt-12">
+      {/* Contenu principal */}
+      <div className="max-w-7xl mx-auto px-4 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center"
         >
           <div className="flex items-center justify-center gap-2 mb-4">
             <Sparkles className="w-8 h-8 text-gold" />
@@ -19,7 +19,40 @@ const Footer = () => {
           <p className="text-white/80 mb-6">
             Révélons la lumière qui brille en vous
           </p>
-          <div className="w-24 h-1 bg-gold mx-auto mb-6"></div>
+
+          {/* Réseaux sociaux */}
+          <div className="flex items-center justify-center gap-6 mb-6">
+            <motion.a
+              href="#"
+              whileHover={{ scale: 1.2 }}
+              className="text-white"
+            >
+              <Facebook className="w-6 h-6" />
+            </motion.a>
+            <motion.a
+              href="#"
+              whileHover={{ scale: 1.2 }}
+              className="text-white"
+            >
+              <Instagram className="w-6 h-6" />
+            </motion.a>
+            <motion.a
+              href="#"
+              whileHover={{ scale: 1.2 }}
+              className="text-white"
+            >
+              <Linkedin className="w-6 h-6" />
+            </motion.a>
+            <motion.a
+              href="#"
+              whileHover={{ scale: 1.2 }}
+              className="text-white"
+            >
+              <Twitter className="w-6 h-6" />
+            </motion.a>
+          </div>
+
+          <div className="w-24 h-1 bg-gold mx-auto mb-6 rounded-full"></div>
           <p className="text-gold font-semibold text-lg">
             Powered by Rénato TCHOBO
           </p>
@@ -27,6 +60,13 @@ const Footer = () => {
             © 2025 GLOW EMPIRE. Tous droits réservés.
           </p>
         </motion.div>
+      </div>
+
+      {/* Barre colorée vert-jaune-rouge */}
+      <div className="absolute bottom-0 left-0 w-full h-2 flex">
+        <div className="w-1/3 h-full bg-green-500"></div>
+        <div className="w-1/3 h-full bg-yellow-400"></div>
+        <div className="w-1/3 h-full bg-red-500"></div>
       </div>
     </footer>
   );
