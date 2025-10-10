@@ -1,149 +1,160 @@
-import { motion } from "framer-motion";
-import { Sparkles, MessageCircle, Monitor, Users, Palette, Star } from "lucide-react";
+import { motion } from 'framer-motion';
+import { Sparkles, Monitor, Users, Palette, Megaphone, Globe2 } from 'lucide-react';
 
-export default function Home() {
+const Home = () => {
   const services = [
-    { icon: MessageCircle, title: "Communication & Événementiel", color: "from-yellow-400 to-amber-600" },
-    { icon: Monitor, title: "Digital & Technologie", color: "from-blue-400 to-indigo-600" },
-    { icon: Users, title: "Coaching & Leadership", color: "from-pink-400 to-rose-600" },
-    { icon: Palette, title: "Créatif & Visuel", color: "from-purple-400 to-fuchsia-600" },
-    { icon: Star, title: "Formations", color: "from-teal-400 to-emerald-600" },
+    { icon: Megaphone, title: 'Communication', color: 'from-gold to-yellow-600' },
+    { icon: Monitor, title: 'Digital', color: 'from-blue-500 to-blue-700' },
+    { icon: Palette, title: 'Créatif', color: 'from-amber-400 to-gold' },
+    { icon: Users, title: 'Coaching', color: 'from-indigo-500 to-purple-600' },
+    { icon: Globe2, title: 'Stratégie', color: 'from-gold to-yellow-500' },
+    { icon: Sparkles, title: 'Innovation', color: 'from-blue-400 to-gold' },
   ];
 
   return (
-    <div className="bg-[#0a0a0a] text-white overflow-hidden">
-      {/* HERO */}
-      <section className="min-h-screen flex flex-col md:flex-row items-center justify-between px-6 md:px-20 relative">
-        <div className="absolute inset-0 opacity-40 blur-3xl bg-gradient-to-r from-yellow-500 via-indigo-500 to-blue-800 -z-10" />
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-xl space-y-6"
-        >
-          <h1 className="text-5xl md:text-6xl font-bold leading-tight">
-            <span className="text-yellow-400">GLOW EMPIRE</span><br />
-            Révélons votre éclat.
-          </h1>
-          <p className="text-gray-300 text-lg">
-            Une agence créative, digitale et humaine qui propulse les talents, les marques et les idées.
+    <div className="bg-[#01010A] text-white overflow-hidden">
+
+      {/* === HERO SECTION === */}
+      <section className="relative flex flex-col md:flex-row items-center justify-between px-10 lg:px-20 py-24 min-h-screen bg-gradient-to-br from-[#000814] via-[#001D3D] to-[#000814]">
+        {/* Halo lumineux global */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-20 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 right-20 w-[500px] h-[500px] bg-gold/20 rounded-full blur-3xl"></div>
+        </div>
+
+        {/* Texte à gauche */}
+        <div className="relative z-10 md:w-1/2 space-y-6">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-5xl md:text-6xl font-extrabold leading-tight"
+          >
+            Faites briller <span className="text-gold">votre empire</span> digital
+          </motion.h1>
+
+          <p className="text-white/80 max-w-md">
+            Glow Empire, l’agence qui fusionne art, stratégie et technologie pour révéler l’excellence de votre marque.
           </p>
-          <div className="flex gap-4 mt-4">
+
+          <div className="flex gap-4 pt-4">
             <motion.a
-              whileHover={{ scale: 1.05 }}
-              className="px-6 py-3 bg-yellow-500 text-black rounded-xl font-semibold shadow-lg shadow-yellow-500/30"
               href="#services"
-            >
-              Découvrir nos pôles
-            </motion.a>
-            <motion.a
               whileHover={{ scale: 1.05 }}
-              className="px-6 py-3 border border-white/40 rounded-xl font-semibold hover:bg-white/10"
-              href="#vision"
+              className="relative bg-gold text-deepBlue font-semibold px-6 py-3 rounded-xl overflow-hidden shadow-lg"
             >
-              Notre vision
+              <span className="relative z-10">Découvrir nos pôles</span>
+              <div className="absolute inset-0 bg-gold blur-lg opacity-30"></div>
+            </motion.a>
+
+            <motion.a
+              href="#contact"
+              whileHover={{ scale: 1.05 }}
+              className="relative border-2 border-gold text-white px-6 py-3 rounded-xl overflow-hidden"
+            >
+              <span className="relative z-10">Nous contacter</span>
+              <div className="absolute inset-0 bg-gold/20 blur-xl opacity-50"></div>
             </motion.a>
           </div>
-        </motion.div>
+        </div>
 
+        {/* Image à droite */}
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
+          initial={{ opacity: 0, x: 60 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="mt-12 md:mt-0"
+          transition={{ duration: 1 }}
+          className="relative z-10 md:w-1/2 mt-10 md:mt-0 flex justify-center"
         >
-          <img
-            src="/images/glow-hero.jpg"
-            alt="Glow Empire"
-            className="w-[420px] md:w-[520px] rounded-[20px] border-[6px] border-double border-yellow-400 shadow-[0_0_40px_rgba(255,215,0,0.3)]"
-          />
+          <div className="relative border-double border-4 border-gold rounded-[15px] overflow-hidden shadow-[0_0_30px_#FFD70080]">
+            <img
+              src="https://i.ibb.co/C3dsnwQY/ce7e80db7fa8b88ece724a91f18f7d6a.jpg"
+              alt="Glow Empire"
+              className="object-cover w-full h-[420px]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+          </div>
         </motion.div>
       </section>
 
-      {/* SECTION - PRÉSENTATION */}
-      <section className="py-24 px-6 md:px-20 bg-gradient-to-b from-[#0a0a0a] via-[#111] to-[#0a0a0a] text-center">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl font-bold mb-4 text-yellow-400"
-        >
-          Présentation
-        </motion.h2>
-        <p className="text-gray-300 max-w-3xl mx-auto text-lg leading-relaxed">
-          GLOW EMPIRE est une entreprise béninoise multidisciplinaire qui connecte les idées, les marques et les talents.
-          Nous révélons le potentiel des individus et des entreprises à travers la créativité, la stratégie et la technologie.
-        </p>
-      </section>
+      {/* === SERVICES === */}
+      <section id="services" className="py-24 px-8 bg-[#F5F5F5] text-deepBlue">
+        <div className="max-w-6xl mx-auto text-center mb-16">
+          <h2 className="text-4xl font-bold mb-4">Nos Pôles d’Excellence</h2>
+          <div className="w-20 h-1 bg-gold mx-auto"></div>
+        </div>
 
-      {/* SECTION - SERVICES */}
-      <section id="services" className="py-24 px-6 md:px-20 bg-[#0f0f0f]">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl font-bold text-center mb-16"
-        >
-          Nos Pôles d’Excellence
-        </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
-          {services.map((s, i) => (
+          {services.map((service, index) => (
             <motion.div
-              key={i}
-              whileHover={{ scale: 1.05, y: -10 }}
-              className={`p-8 rounded-2xl bg-gradient-to-br ${s.color} shadow-lg shadow-black/40 text-center`}
+              key={index}
+              whileHover={{ scale: 1.05 }}
+              className="relative bg-white rounded-2xl p-8 text-center shadow-xl overflow-hidden"
             >
-              <s.icon className="w-10 h-10 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold">{s.title}</h3>
+              <div className="absolute inset-0 bg-gradient-to-br from-white via-gold/5 to-white opacity-30 blur-2xl"></div>
+              <div className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-2xl flex items-center justify-center mx-auto mb-6`}>
+                <service.icon className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold">{service.title}</h3>
             </motion.div>
           ))}
         </div>
       </section>
 
-      {/* SECTION - VISION */}
-      <section id="vision" className="py-24 px-6 md:px-20 bg-gradient-to-r from-indigo-900 via-purple-900 to-indigo-900 text-center">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          className="text-4xl font-bold mb-6 text-yellow-400"
-        >
-          Notre Vision
-        </motion.h2>
-        <p className="text-gray-200 max-w-3xl mx-auto text-lg leading-relaxed">
-          Devenir un acteur de référence dans la communication, le digital et le développement humain en Afrique francophone.
-          Nous croyons en une jeunesse créative, connectée et porteuse de lumière.
+      {/* === ABOUT === */}
+      <section className="py-24 px-8 bg-gradient-to-r from-[#000814] via-[#001D3D] to-[#000814] text-center">
+        <h2 className="text-4xl font-bold text-gold mb-6">Notre Vision</h2>
+        <p className="max-w-3xl mx-auto text-white/80 text-lg leading-relaxed">
+          Faire de chaque projet une expérience lumineuse, où créativité et stratégie fusionnent 
+          pour bâtir des marques fortes et inoubliables.
         </p>
       </section>
 
-      {/* SECTION - OBJECTIF */}
-      <section className="py-24 px-6 md:px-20 bg-[#0a0a0a] text-center">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          className="text-4xl font-bold mb-6 text-yellow-400"
-        >
-          Notre Objectif
-        </motion.h2>
-        <p className="text-gray-300 max-w-3xl mx-auto text-lg">
-          Créer un écosystème durable qui soutient la jeunesse, favorise la créativité et stimule la réussite à travers
-          des solutions innovantes et humaines.
+      {/* === PORTFOLIO === */}
+      <section className="py-24 px-8 bg-white text-deepBlue text-center">
+        <h2 className="text-4xl font-bold mb-6">Réalisations</h2>
+        <p className="max-w-3xl mx-auto text-gray-600 mb-12">
+          Découvrez quelques projets où nos équipes ont transformé la vision de nos clients en réalité digitale.
         </p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {[1,2,3].map((i) => (
+            <div key={i} className="overflow-hidden rounded-2xl shadow-lg hover:scale-105 transition">
+              <img src={`/images/work-${i}.jpg`} alt="" className="object-cover w-full h-64" />
+            </div>
+          ))}
+        </div>
       </section>
 
-      {/* SECTION - ÉVÉNEMENTS */}
-      <section className="py-24 px-6 md:px-20 bg-gradient-to-r from-yellow-500 via-orange-600 to-amber-700 text-center text-black">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          className="text-4xl font-bold mb-6"
-        >
-          Événements Signature
-        </motion.h2>
-        <p className="max-w-3xl mx-auto text-lg font-medium">
-          Des expériences qui inspirent, connectent et valorisent la jeunesse béninoise à travers des conférences, galas et
-          programmes de formation.
-        </p>
+      {/* === TEAM === */}
+      <section className="py-24 px-8 bg-[#001D3D] text-center text-white">
+        <h2 className="text-4xl font-bold text-gold mb-10">L’Équipe</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+          {[1,2,3].map((i) => (
+            <div key={i} className="relative bg-white/5 rounded-2xl p-8 shadow-lg hover:shadow-gold/30 transition">
+              <div className="absolute inset-0 bg-gold/10 blur-xl opacity-30"></div>
+              <img src={`/images/team-${i}.jpg`} alt="" className="rounded-full w-32 h-32 mx-auto mb-6 border-4 border-gold shadow-[0_0_25px_#FFD70080]" />
+              <h3 className="text-xl font-semibold">Membre {i}</h3>
+              <p className="text-white/70">Expert GLOW EMPIRE</p>
+            </div>
+          ))}
+        </div>
       </section>
+
+      {/* === CONTACT === */}
+      <section id="contact" className="py-24 px-8 bg-gradient-to-b from-[#000814] via-[#001D3D] to-[#000814] text-center text-white">
+        <h2 className="text-4xl font-bold text-gold mb-4">Contactez-nous</h2>
+        <p className="text-white/70 mb-10">Vous avez un projet ou une idée ? Donnons-lui vie ensemble.</p>
+        <motion.a
+          href="mailto:contact@glowempire.com"
+          whileHover={{ scale: 1.05 }}
+          className="relative bg-gold text-deepBlue font-semibold px-10 py-4 rounded-2xl shadow-lg"
+        >
+          <span className="relative z-10">Envoyer un message</span>
+          <div className="absolute inset-0 bg-gold blur-lg opacity-40"></div>
+        </motion.a>
+      </section>
+
     </div>
   );
-}
+};
+
+export default Home;
