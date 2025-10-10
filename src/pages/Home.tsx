@@ -77,40 +77,86 @@ const Home = () => {
       </section>
 
       {/* === SERVICES === */}
-<section id="services" className="relative py-24 px-8 bg-[#01010A] text-white overflow-hidden">
-  {/* Halo global doux */}
+<section
+  id="services"
+  className="relative py-24 px-8 bg-[#050512] text-white overflow-hidden"
+>
+  {/* Lumières d’ambiance globales */}
   <div className="absolute inset-0">
-    <div className="absolute top-0 left-20 w-[400px] h-[400px] bg-gold/10 rounded-full blur-[180px]"></div>
-    <div className="absolute bottom-0 right-20 w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[180px]"></div>
+    <div className="absolute top-20 left-40 w-[500px] h-[500px] bg-gold/10 rounded-full blur-[200px]"></div>
+    <div className="absolute bottom-0 right-40 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[200px]"></div>
   </div>
 
-  <div className="relative max-w-6xl mx-auto text-center mb-20 z-10">
-    <h2 className="text-4xl font-bold text-gold mb-4 tracking-wide">Nos Pôles d’Excellence</h2>
-    <div className="w-20 h-1 bg-gold mx-auto rounded-full"></div>
+  <div className="relative z-10 max-w-6xl mx-auto text-center mb-20">
+    <h2 className="text-4xl font-extrabold text-gold mb-4 tracking-wide">
+      Nos Pôles d’Excellence
+    </h2>
+    <p className="text-white/70 max-w-3xl mx-auto">
+      Nous allions créativité, stratégie et innovation pour donner vie à des marques fortes et durables.
+    </p>
+    <div className="w-20 h-1 bg-gold mx-auto mt-6 rounded-full"></div>
   </div>
 
-  <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto z-10">
+  <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
     {services.map((service, index) => (
       <motion.div
         key={index}
-        whileHover={{ scale: 1.07 }}
+        whileHover={{ scale: 1.04 }}
         transition={{ duration: 0.3 }}
-        className="relative group bg-[#0B0B16] border border-white/10 rounded-2xl p-10 text-center shadow-[0_0_25px_#000] overflow-hidden"
+        className="relative bg-[#0B0B16] rounded-2xl p-10 text-center shadow-[0_0_20px_#000] border border-white/10 overflow-hidden group"
       >
-        {/* Halo lumineux derrière la carte */}
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500">
-          <div className={`absolute -inset-1 bg-gradient-to-br ${service.color} rounded-2xl blur-2xl opacity-60 animate-pulse`}></div>
-        </div>
+        {/* Halo lumineux doux derrière chaque grid */}
+        <div
+          className={`absolute -inset-0.5 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-80 blur-[80px] transition-all duration-500`}
+        ></div>
 
         {/* Contenu */}
-        <div className="relative z-10 flex flex-col items-center">
-          <div className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-2xl flex items-center justify-center mb-6 shadow-[0_0_20px_#FFD70060]`}>
+        <div className="relative z-10">
+          <div
+            className={`w-16 h-16 mx-auto mb-6 rounded-2xl flex items-center justify-center bg-gradient-to-br ${service.color} shadow-[0_0_30px_#FFD70040]`}
+          >
             <service.icon className="w-8 h-8 text-white" />
           </div>
-          <h3 className="text-xl font-semibold text-gold mb-2">{service.title}</h3>
-          <p className="text-white/70 text-sm">
-            Découvrez nos solutions {service.title.toLowerCase()} alliant innovation et excellence.
-          </p>
+          <h3 className="text-xl font-semibold text-gold mb-3">
+            {service.title}
+          </h3>
+
+          {service.title === 'Communication' && (
+            <p className="text-white/70">
+              Élaboration de stratégies de communication percutantes, branding
+              cohérent et storytelling visuel pour renforcer votre image.
+            </p>
+          )}
+          {service.title === 'Digital' && (
+            <p className="text-white/70">
+              Création de sites web, gestion des réseaux sociaux et campagnes
+              digitales pour propulser votre marque en ligne.
+            </p>
+          )}
+          {service.title === 'Créatif' && (
+            <p className="text-white/70">
+              Conception graphique, identité visuelle, vidéos et designs uniques
+              qui captivent et inspirent.
+            </p>
+          )}
+          {service.title === 'Coaching' && (
+            <p className="text-white/70">
+              Accompagnement personnalisé pour révéler le potentiel créatif et
+              stratégique de vos équipes.
+            </p>
+          )}
+          {service.title === 'Stratégie' && (
+            <p className="text-white/70">
+              Analyse de marque, positionnement et plan d’action sur mesure pour
+              des résultats mesurables.
+            </p>
+          )}
+          {service.title === 'Innovation' && (
+            <p className="text-white/70">
+              Intégration de nouvelles technologies et idées créatives pour
+              anticiper les tendances du marché.
+            </p>
+          )}
         </div>
       </motion.div>
     ))}
