@@ -1,62 +1,58 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageCircle, Monitor, Users, Palette, GraduationCap, Award, X } from 'lucide-react';
+import {
+  MessageCircle,
+  Monitor,
+  Users,
+  Palette,
+  GraduationCap,
+  Award,
+  X
+} from 'lucide-react';
 
 const Services = () => {
   const services = [
     {
       icon: MessageCircle,
       title: 'Communication & Événementiel',
-      description:
-        "Stratégies de communication percutantes, organisation d'événements professionnels et relations publiques pour valoriser votre image de marque.",
-      details:
-        "Nous concevons des stratégies de communication sur mesure, incluant branding, storytelling, et la gestion complète d'événements pour maximiser l'impact de votre marque.",
-      color: 'from-royalBlue to-blue-600',
+      short: "Stratégies et événements percutants pour valoriser votre image.",
+      details: "Nous concevons des stratégies sur mesure, gestion complète d'événements et relations publiques pour maximiser votre impact.",
+      color: 'from-deepBlue to-royalBlue'
     },
     {
       icon: Monitor,
       title: 'Digital & Technologie',
-      description:
-        'Développement web et mobile, transformation digitale, marketing digital et solutions technologiques innovantes pour votre entreprise.',
-      details:
-        'Nos solutions digitales englobent la conception de sites web responsives, applications mobiles, campagnes digitales, et automatisation de processus pour booster votre présence en ligne.',
-      color: 'from-deepBlue to-royalBlue',
+      short: 'Solutions web et digitales innovantes pour votre entreprise.',
+      details: 'Conception de sites web, applications mobiles, marketing digital et transformation digitale pour renforcer votre présence en ligne.',
+      color: 'from-royalBlue to-blue-600'
     },
     {
       icon: Users,
-      title: 'Coaching & Développement Personnel',
-      description:
-        'Accompagnement personnalisé pour le leadership, la gestion du stress, le développement de carrière et la réalisation de vos objectifs.',
-      details:
-        'Nous proposons des programmes de coaching individuels et collectifs pour améliorer compétences professionnelles, leadership, confiance en soi et performance globale.',
-      color: 'from-gold to-amber-600',
+      title: 'Coaching & Développement',
+      short: 'Accompagnement pour leadership et performance.',
+      details: 'Coaching individuel et collectif pour développer compétences, confiance et leadership de vos équipes.',
+      color: 'from-gold to-amber-600'
     },
     {
       icon: Palette,
-      title: 'Pôle Créatif & Visuel',
-      description:
-        "Design graphique, identité visuelle, production vidéo et création de contenus qui captivent et engagent votre audience.",
-      details:
-        'Notre équipe créative conçoit des identités visuelles, contenus graphiques et vidéos percutantes pour renforcer l’image et la visibilité de votre marque.',
-      color: 'from-gold to-yellow-600',
+      title: 'Créatif & Visuel',
+      short: 'Design graphique, identité visuelle et contenus captivants.',
+      details: 'Création de contenus visuels, vidéos et identités de marque pour captiver votre audience et renforcer votre image.',
+      color: 'from-gold to-yellow-500'
     },
     {
       icon: GraduationCap,
       title: 'Formations Professionnelles',
-      description:
-        "Programmes de formation sur mesure en communication, digital, leadership et compétences professionnelles pour booster votre carrière.",
-      details:
-        'Nos formations sont conçues pour développer compétences techniques et managériales, adaptées aux besoins spécifiques des entreprises et professionnels.',
-      color: 'from-royalBlue to-cyan-600',
+      short: 'Programmes adaptés pour booster vos compétences.',
+      details: 'Formations en communication, digital, leadership et compétences professionnelles pour entreprises et particuliers.',
+      color: 'from-royalBlue to-cyan-500'
     },
     {
       icon: Award,
       title: 'Événements Signature',
-      description:
-        "Organisation d'événements d'envergure comme la Conférence des Femmes Leaders du Bénin, créant des plateformes d'inspiration et de réseautage.",
-      details:
-        "Nous gérons la conception, organisation et logistique d'événements majeurs, garantissant impact, networking et visibilité maximale pour nos clients.",
-      color: 'from-deepBlue to-purple-600',
+      short: 'Organisation d’événements majeurs inspirants et networking.',
+      details: 'Conception, organisation et logistique d’événements comme conférences ou galas pour impact et visibilité maximales.',
+      color: 'from-deepBlue to-purple-600'
     },
   ];
 
@@ -67,33 +63,37 @@ const Services = () => {
 
       {/* HERO */}
       <section className="relative py-24 bg-gradient-to-br from-deepBlue via-royalBlue to-deepBlue text-center">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-5xl md:text-6xl font-bold text-white mb-4"
+            className="text-5xl md:text-6xl font-extrabold text-white mb-6"
           >
             Nos Services
           </motion.h1>
-          <p className="text-xl text-white/90 max-w-3xl mx-auto mb-6">
-            Des solutions complètes pour transformer vos ambitions en réalité
-          </p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-xl text-white/90 max-w-3xl mx-auto mb-6"
+          >
+            Des solutions complètes et sur mesure pour transformer vos ambitions en réalité.
+          </motion.p>
           <div className="w-24 h-1 bg-gold mx-auto rounded-full"></div>
         </div>
       </section>
 
       {/* GRID SERVICES */}
-      <section className="py-20 px-4">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="py-20 px-4 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {services.map((service, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -10, boxShadow: '0 20px 40px rgba(212, 175, 55, 0.3)' }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
               className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all border-2 border-transparent hover:border-gold cursor-pointer"
               onClick={() => setSelectedService(service)}
             >
@@ -102,19 +102,15 @@ const Services = () => {
               >
                 <service.icon className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-deepBlue mb-4 text-center">
-                {service.title}
-              </h3>
-              <p className="text-gray-700 leading-relaxed text-center">
-                {service.description}
-              </p>
+              <h3 className="text-2xl font-bold text-deepBlue text-center mb-2">{service.title}</h3>
+              <p className="text-gray-700 text-center">{service.short}</p>
             </motion.div>
           ))}
         </div>
       </section>
 
-      {/* DEMANDER UN DEVIS */}
-      <motion.div className="text-center mt-16">
+      {/* CTA */}
+      <section className="text-center mt-16 mb-24">
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -122,7 +118,7 @@ const Services = () => {
         >
           Demander un devis
         </motion.button>
-      </motion.div>
+      </section>
 
       {/* MODAL DETAILS */}
       <AnimatePresence>
@@ -163,6 +159,7 @@ const Services = () => {
           </>
         )}
       </AnimatePresence>
+
     </div>
   );
 };
