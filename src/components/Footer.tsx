@@ -33,7 +33,7 @@ const Footer = () => {
               <motion.a href="https://www.facebook.com/share/1Aykp5xSKq/?mibextid=wwXIfr" whileHover={{ scale: 1.2 }} className="text-white">
                 <Facebook className="w-6 h-6" />
               </motion.a>
-              <motion.a href="#" whileHover={{ scale: 1.2 }} className="text-white">
+              <motion.a href="https://www.instagram.com/glowe_empire?igsh=bjI1bmxnanNmYmkx&utm_source=qr" whileHover={{ scale: 1.2 }} className="text-white">
                 <Instagram className="w-6 h-6" />
               </motion.a>
               <motion.a href="#" whileHover={{ scale: 1.2 }} className="text-white">
