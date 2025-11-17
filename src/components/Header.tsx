@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sparkles } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 interface HeaderProps {
   currentPage: string;
@@ -25,156 +25,152 @@ const Header = ({ currentPage, onNavigate }: HeaderProps) => {
     setIsOpen(false);
   };
 
-  // 🔄 Animation automatique des menus toutes les 10 secondes
+  // Défilement automatique du menu toutes les 10s
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % navItems.length);
     }, 10000);
     return () => clearInterval(interval);
-  }, [navItems.length]);
+  }, []);
 
   return (
     <>
+      {/* ---------------- HEADER ---------------- */}
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-lg"
+        className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl shadow-md"
       >
-        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-          {/* Logo */}
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+          
+          {/* -------- LOGO -------- */}
           <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="flex items-center gap-2 cursor-pointer"
+            whileHover={{ scale: 1.03 }}
+            className="flex items-center gap-3 cursor-pointer"
             onClick={() => handleNavigate('home')}
           >
-            <Sparkles className="w-8 h-8 text-gold" />
-            <span className="text-2xl font-bold text-deepBlue">
+            <img
+              src="https://i.ibb.co/yDgY0fh/e160b590-0336-4255-bd08-8b6ac201f812.jpg"
+              alt="Logo Glow Empire"
+              className="w-12 h-12 object-cover rounded-full shadow-sm"
+            />
+            <span className="text-2xl font-extrabold tracking-wide text-deepBlue">
               GLOW EMPIRE
             </span>
           </motion.div>
 
-          {/* Navigation Desktop */}
-          <nav className="hidden lg:flex items-center gap-8">
+          {/* -------- NAV DESKTOP -------- */}
+          <nav className="hidden lg:flex items-center gap-10">
             {navItems.map((item, index) => (
               <motion.button
                 key={item.page}
                 onClick={() => handleNavigate(item.page)}
                 animate={{
-                  scale: activeIndex === index ? 1.1 : 1,
                   color:
                     currentPage === item.page
-                      ? '#D4AF37' // or
+                      ? '#D4AF37'
                       : activeIndex === index
                       ? '#D4AF37'
                       : '#001D3D',
+                  scale: currentPage === item.page ? 1.12 : 1,
                 }}
-                transition={{
-                  duration: 0.6,
-                  ease: 'easeInOut',
-                }}
-                className="font-semibold transition-colors"
+                className="font-semibold text-lg transition-colors"
               >
                 {item.name}
               </motion.button>
             ))}
 
-            {/* ✅ Bouton “Demander un devis” */}
             <motion.button
               whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
               onClick={() => handleNavigate('contact')}
-              className="bg-gold text-white px-5 py-2 rounded-xl font-semibold shadow-md hover:shadow-lg transition-all"
+              className="bg-gold text-white px-6 py-3 rounded-xl font-semibold shadow-md hover:shadow-lg transition-all"
             >
               Demander un devis
             </motion.button>
           </nav>
 
-          {/* Menu Mobile */}
+          {/* -------- BURGER MENU -------- */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="lg:hidden text-deepBlue p-2"
-            aria-label="Toggle menu"
           >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
           </button>
         </div>
       </motion.header>
 
-      {/* Menu Mobile Déroulant */}
+      {/* ---------------- MOBILE MENU ---------------- */}
       <AnimatePresence>
         {isOpen && (
           <>
+            {/* Overlay */}
             <motion.div
+              className="fixed inset-0 bg-black/40 z-40 lg:hidden"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
-              className="fixed inset-0 bg-black/50 z-40 lg:hidden"
             />
+
+            {/* Menu */}
             <motion.div
               initial={{ x: -300 }}
               animate={{ x: 0 }}
               exit={{ x: -300 }}
               transition={{ type: 'spring', damping: 25 }}
-              className="fixed left-0 top-0 bottom-0 w-80 bg-gradient-to-br from-deepBlue to-royalBlue z-50 lg:hidden shadow-2xl"
+              className="fixed left-0 top-0 bottom-0 w-72 bg-gradient-to-br from-deepBlue to-royalBlue text-white z-50 shadow-2xl p-6"
             >
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-8">
-                  <div className="flex items-center gap-2">
-                    <Sparkles className="w-8 h-8 text-gold" />
-                    <span className="text-xl font-bold text-white">
-                      GLOW EMPIRE
-                    </span>
-                  </div>
-                  <button
-                    onClick={() => setIsOpen(false)}
-                    className="text-white p-2"
-                    aria-label="Close menu"
-                  >
-                    <X className="w-6 h-6" />
-                  </button>
+              <div className="flex items-center justify-between mb-10">
+                <div className="flex items-center gap-3">
+                  <img
+                    src="https://i.ibb.co/yDgY0fh/e160b590-0336-4255-bd08-8b6ac201f812.jpg"
+                    alt="Logo Glow Empire"
+                    className="w-10 h-10 rounded-full object-cover"
+                  />
+                  <span className="text-xl font-bold">GLOW EMPIRE</span>
                 </div>
 
-                <nav className="space-y-2">
-                  {navItems.map((item, index) => (
-                    <motion.button
-                      key={item.page}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{
-                        opacity: 1,
-                        x: 0,
-                        scale: activeIndex === index ? 1.1 : 1,
-                        backgroundColor:
-                          currentPage === item.page
-                            ? '#D4AF37'
-                            : activeIndex === index
-                            ? '#D4AF37'
-                            : 'transparent',
-                      }}
-                      transition={{ delay: index * 0.1 }}
-                      onClick={() => handleNavigate(item.page)}
-                      className={`w-full text-left px-4 py-3 rounded-xl font-semibold ${
-                        currentPage === item.page
-                          ? 'text-deepBlue'
-                          : 'text-white hover:bg-white/10'
-                      }`}
-                    >
-                      {item.name}
-                    </motion.button>
-                  ))}
-
-                  {/* ✅ Bouton “Demander un devis” mobile */}
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => handleNavigate('contact')}
-                    className="w-full mt-4 bg-gold text-white px-5 py-3 rounded-xl font-semibold shadow-md"
-                  >
-                    Demander un devis
-                  </motion.button>
-                </nav>
+                <button onClick={() => setIsOpen(false)}>
+                  <X className="w-7 h-7 text-white" />
+                </button>
               </div>
+
+              <nav className="space-y-3">
+                {navItems.map((item, index) => (
+                  <motion.button
+                    key={item.page}
+                    onClick={() => handleNavigate(item.page)}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{
+                      opacity: 1,
+                      x: 0,
+                      backgroundColor:
+                        currentPage === item.page
+                          ? '#D4AF37'
+                          : activeIndex === index
+                          ? '#D4AF37'
+                          : 'transparent',
+                    }}
+                    transition={{ delay: index * 0.1 }}
+                    className={`w-full text-left px-4 py-3 rounded-lg font-semibold ${
+                      currentPage === item.page
+                        ? 'text-deepBlue'
+                        : 'text-white hover:bg-white/10'
+                    }`}
+                  >
+                    {item.name}
+                  </motion.button>
+                ))}
+
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  onClick={() => handleNavigate('contact')}
+                  className="w-full mt-5 bg-gold text-white px-5 py-3 rounded-xl font-semibold shadow-md"
+                >
+                  Demander un devis
+                </motion.button>
+              </nav>
             </motion.div>
           </>
         )}

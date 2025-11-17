@@ -98,7 +98,7 @@ const Home = () => {
         >
           <div className="relative border-double border-4 border-yellow-400 rounded-[15px] overflow-hidden shadow-[0_0_30px_#FFD70080]">
             <img
-              src="https://i.ibb.co/C3dsnwQY/ce7e80db7fa8b88ece724a91f18f7d6a.jpg"
+              src="https://i.ibb.co/yDgY0fh/e160b590-0336-4255-bd08-8b6ac201f812.jpg"
               alt="Glow Empire"
               className="object-cover w-full h-[420px]"
             />
