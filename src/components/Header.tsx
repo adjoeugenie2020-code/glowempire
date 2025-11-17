@@ -71,7 +71,7 @@ const Header = ({ currentPage, onNavigate }: HeaderProps) => {
             </motion.a>
 
             <motion.a
-              href="https://instagram.com"
+              href="https://www.instagram.com/glowe_empire?igsh=bjI1bmxnanNmYmkx&utm_source=qr"
               target="_blank"
               whileHover={{ scale: 1.15 }}
               className="text-deepBlue"
