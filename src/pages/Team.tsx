@@ -3,17 +3,59 @@ import { Users } from 'lucide-react';
 
 const Team = () => {
   const members = [
-    { name: 'Riquier SOUSSIA', role: 'PDG' },
-    { name: 'Alix DAS-NAVIS', role: 'DG' },
-    { name: 'Faridath ABOUDOU', role: 'Trésorière Générale' },
-    { name: 'Prince DEGLI', role: 'TGA' },
-    { name: 'Imelda GBELOME', role: 'DRH' },
-    { name: 'ANANI Jordan', role: 'Graphiste Officiel' },
-    { name: 'Rénato TCHOBO', role: 'Responsable Communication & Design Digital' },
+    {
+      name: 'SOUSSIA Riquier',
+      role: 'Président Directeur Général',
+      function:
+        'Définit la vision stratégique globale, prend les décisions majeures et représente l’entreprise à l’échelle institutionnelle et internationale.',
+    },
+    {
+      name: 'DAS-NAVIS Alix',
+      role: 'Directrice Générale',
+      function:
+        "Assure la mise en œuvre des orientations stratégiques et la coordination des différents pôles de l’entreprise.",
+    },
+    {
+      name: 'BALOÏTCHA Imelda Gbelome',
+      role: 'Directrice des Ressources Humaines',
+      function:
+        'Gère le recrutement, la formation, la gestion administrative et élabore des politiques RH pour optimiser la performance et le bien-être de l’équipe.',
+    },
+    {
+      name: 'MELE Trésor',
+      role: 'Secrétaire Générale',
+      function:
+        'Gère le suivi administratif, la rédaction et la conservation des documents officiels, et organise les réunions stratégiques.',
+    },
+    {
+      name: 'ABOUDOU Faridath',
+      role: 'Trésorière Générale',
+      function:
+        'Supervise la gestion financière, élabore le budget et contrôle les flux financiers de l’entreprise.',
+    },
+    {
+      name: 'DEGLI Prince',
+      role: 'Trésorier Général Adjoint',
+      function:
+        'Supporte la Trésorière dans la gestion quotidienne des flux de trésorerie et le suivi des dépenses courantes.',
+    },
+    {
+      name: 'TCHOBO Rénato',
+      role: 'Chargé de Communication et Design Digital',
+      function:
+        "Conçoit et met en œuvre la stratégie de communication de l’entreprise, interne et externe, et gère l’image de marque sur les réseaux sociaux.",
+    },
+    {
+      name: 'ANANI Jordan',
+      role: 'Chargé des Visuels',
+      function:
+        'Responsable de la création des supports visuels, de la direction artistique et du branding global de l’entreprise.',
+    },
   ];
 
   return (
     <div className="min-h-screen bg-lightGray">
+      {/* Header Section */}
       <section className="relative py-20 bg-gradient-to-br from-deepBlue via-royalBlue to-deepBlue">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <motion.div
@@ -33,6 +75,7 @@ const Team = () => {
         </div>
       </section>
 
+      {/* Team Members Section */}
       <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
@@ -44,22 +87,33 @@ const Team = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -10 }}
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all group"
+                className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all group"
               >
+                {/* Photo / Initial */}
                 <div className="relative mb-6">
-                  <div className="w-32 h-32 bg-gradient-to-br from-deepBlue to-royalBlue rounded-full mx-auto flex items-center justify-center text-white text-4xl font-bold group-hover:shadow-lg group-hover:shadow-gold/50 transition-all">
-                    {member.name.charAt(0)}
+                  <div className="w-28 h-28 bg-gradient-to-br from-deepBlue to-royalBlue rounded-full mx-auto flex items-center justify-center text-white text-4xl font-bold group-hover:shadow-lg group-hover:shadow-gold/50 transition-all">
+                    {member.name
+                      .split(' ')
+                      .map((n) => n[0])
+                      .join('')
+                      .slice(0, 2)}
                   </div>
-                  <div className="absolute inset-0 bg-gradient-to-br from-gold to-yellow-600 rounded-full mx-auto w-32 h-32 opacity-0 group-hover:opacity-20 transition-opacity"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-gold to-yellow-600 rounded-full mx-auto w-28 h-28 opacity-0 group-hover:opacity-20 transition-opacity"></div>
                 </div>
+
+                {/* Name and Role */}
                 <h3 className="text-xl font-bold text-deepBlue text-center mb-2">
                   {member.name}
                 </h3>
-                <p className="text-gold font-semibold text-center">{member.role}</p>
+                <p className="text-gold font-semibold text-center mb-4">{member.role}</p>
+
+                {/* Function / Description */}
+                <p className="text-gray-600 text-sm text-center">{member.function}</p>
               </motion.div>
             ))}
           </div>
 
+          {/* Footer / Designer */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -67,7 +121,7 @@ const Team = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="mt-16 text-center"
           >
-            <div className="inline-block bg-gradient-to-r from-deepBlue to-royalBlue rounded-2xl p-8 shadow-2xl">
+            <div className="inline-block bg-gradient-to-r from-deepBlue to-royalBlue rounded-2xl p-6 shadow-2xl">
               <p className="text-gold font-semibold text-lg">
                 Powered by Rénato TCHOBO
               </p>
