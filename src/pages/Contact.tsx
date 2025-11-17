@@ -21,7 +21,7 @@ const Contact = () => {
   ];
 
   const socialLinks = [
-    { icon: Facebook, label: 'Facebook', href: '#' },
+    { icon: Facebook, label: 'Facebook', href: 'https://www.facebook.com/share/1Aykp5xSKq/?mibextid=wwXIfr' },
     { icon: Instagram, label: 'Instagram', href: '#' },
     { icon: Linkedin, label: 'LinkedIn', href: '#' },
   ];
