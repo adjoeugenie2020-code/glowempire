@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Facebook, Instagram } from 'lucide-react';
 
 interface HeaderProps {
   currentPage: string;
@@ -25,7 +25,6 @@ const Header = ({ currentPage, onNavigate }: HeaderProps) => {
     setIsOpen(false);
   };
 
-  // Défilement automatique du menu toutes les 10s
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % navItems.length);
@@ -42,8 +41,8 @@ const Header = ({ currentPage, onNavigate }: HeaderProps) => {
         transition={{ duration: 0.6, ease: 'easeOut' }}
         className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl shadow-md"
       >
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between relative">
+
           {/* -------- LOGO -------- */}
           <motion.div
             whileHover={{ scale: 1.03 }}
@@ -55,10 +54,31 @@ const Header = ({ currentPage, onNavigate }: HeaderProps) => {
               alt="Logo Glow Empire"
               className="w-12 h-12 object-cover rounded-full shadow-sm"
             />
-            <span className="text-2xl font-extrabold tracking-wide text-deepBlue">
+            <span className="text-2xl font-extrabold tracking-wide text-deepBlue hidden lg:block">
               GLOW EMPIRE
             </span>
           </motion.div>
+
+          {/* -------- SOCIALS MOBILE ONLY -------- */}
+          <div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-6 lg:hidden">
+            <motion.a
+              href="https://facebook.com"
+              target="_blank"
+              whileHover={{ scale: 1.15 }}
+              className="text-deepBlue"
+            >
+              <Facebook className="w-6 h-6" />
+            </motion.a>
+
+            <motion.a
+              href="https://instagram.com"
+              target="_blank"
+              whileHover={{ scale: 1.15 }}
+              className="text-deepBlue"
+            >
+              <Instagram className="w-6 h-6" />
+            </motion.a>
+          </div>
 
           {/* -------- NAV DESKTOP -------- */}
           <nav className="hidden lg:flex items-center gap-10">
@@ -104,7 +124,6 @@ const Header = ({ currentPage, onNavigate }: HeaderProps) => {
       <AnimatePresence>
         {isOpen && (
           <>
-            {/* Overlay */}
             <motion.div
               className="fixed inset-0 bg-black/40 z-40 lg:hidden"
               initial={{ opacity: 0 }}
@@ -113,7 +132,6 @@ const Header = ({ currentPage, onNavigate }: HeaderProps) => {
               onClick={() => setIsOpen(false)}
             />
 
-            {/* Menu */}
             <motion.div
               initial={{ x: -300 }}
               animate={{ x: 0 }}
