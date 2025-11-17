@@ -30,7 +30,7 @@ const Footer = () => {
 
             {/* Réseaux sociaux */}
             <div className="flex items-center justify-center gap-6 mb-6">
-              <motion.a href="#" whileHover={{ scale: 1.2 }} className="text-white">
+              <motion.a href="https://www.facebook.com/share/1Aykp5xSKq/?mibextid=wwXIfr" whileHover={{ scale: 1.2 }} className="text-white">
                 <Facebook className="w-6 h-6" />
               </motion.a>
               <motion.a href="#" whileHover={{ scale: 1.2 }} className="text-white">
