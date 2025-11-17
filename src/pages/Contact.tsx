@@ -22,7 +22,7 @@ const Contact = () => {
 
   const socialLinks = [
     { icon: Facebook, label: 'Facebook', href: 'https://www.facebook.com/share/1Aykp5xSKq/?mibextid=wwXIfr' },
-    { icon: Instagram, label: 'Instagram', href: '#' },
+    { icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/glowe_empire?igsh=bjI1bmxnanNmYmkx&utm_source=qr' },
     { icon: Linkedin, label: 'LinkedIn', href: '#' },
   ];
 
