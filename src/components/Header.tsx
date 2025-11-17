@@ -62,7 +62,7 @@ const Header = ({ currentPage, onNavigate }: HeaderProps) => {
           {/* -------- SOCIALS MOBILE ONLY -------- */}
           <div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-6 lg:hidden">
             <motion.a
-              href="https://facebook.com"
+              href="https://www.facebook.com/share/1Aykp5xSKq/?mibextid=wwXIfr"
               target="_blank"
               whileHover={{ scale: 1.15 }}
               className="text-deepBlue"
