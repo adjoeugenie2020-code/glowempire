@@ -51,8 +51,8 @@ const Events = () => {
       title: "Conférence des Femmes Leaders du Bénin – 1ʳᵉ Édition",
       images: [
         "https://i.ibb.co/9kN7mvhb/524a4169f2ae3e611b6357bf18bbd939.jpg",
-        "https://i.ibb.co/6RD2pXD/conference2.jpg",
-        "https://i.ibb.co/cLxF8vs/conference3.jpg",
+        "https://i.ibb.co/fV00q2Rx/d849aaa0be032ab9ffb58c87751e5b59.jpg",
+        "https://i.ibb.co/wr7NDjhB/5a5de6ca3cdd7ea4549d55499bc5408f.jpg",
       ],
       content:
         "Un rassemblement historique réunissant plus de 300 participantes, avec des panels inspirants, des témoignages de haut niveau, des sessions de networking stratégique et des distinctions honorifiques.",
