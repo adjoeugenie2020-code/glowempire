@@ -19,7 +19,7 @@ const Events = () => {
       images: [
         "https://i.ibb.co/C5rgStGC/fecdfab6-c775-480d-8268-b19c89d3d942.jpg",
         "https://i.ibb.co/kgb7w4f9/ec38ce0f-0f0e-4b3b-b886-3f5fe6692321.jpg",
-        "https://i.ibb.co/HfdBXc7F/b71e0996-4fa9-49b9-8c58-51dae118bca9.jpg"
+        "https://i.ibb.co/HfdBXc7F/b71e0996-4fa9-49b9-8c58-51dae118bca9.jpg",
       ],
       content:
         "Une session immersive visant à développer la créativité, l'analyse stratégique et la discipline nécessaires pour entreprendre efficacement. Les participants ont acquis des compétences clés pour transformer leurs idées en projets viables.",
@@ -28,7 +28,7 @@ const Events = () => {
       icon: Mic,
       title: "Masterclass : Prise de Parole en Public",
       images: [
-        "https://i.ibb.co/tYkYmLM/priseparole1.jpg",
+        "https://i.ibb.co/jvXWK8dF/cde81fbe-0d20-46c2-8da0-3035d18be922.jpg",
         "https://i.ibb.co/1d36Wcp/priseparole2.jpg",
         "https://i.ibb.co/VNfRtx7/priseparole3.jpg",
       ],
