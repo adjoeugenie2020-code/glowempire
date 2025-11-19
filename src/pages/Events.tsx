@@ -55,7 +55,7 @@ const Events = () => {
         "https://i.ibb.co/cLxF8vs/conference3.jpg",
       ],
       content:
-        "Un rassemblement historique réunissant plus de 500 participantes, avec des panels inspirants, des témoignages de haut niveau, des sessions de networking stratégique et des distinctions honorifiques.",
+        "Un rassemblement historique réunissant plus de 300 participantes, avec des panels inspirants, des témoignages de haut niveau, des sessions de networking stratégique et des distinctions honorifiques.",
     },
   ];
 
