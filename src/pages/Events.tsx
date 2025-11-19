@@ -29,7 +29,7 @@ const Events = () => {
       title: "Masterclass : Prise de Parole en Public",
       images: [
         "https://i.ibb.co/jvXWK8dF/cde81fbe-0d20-46c2-8da0-3035d18be922.jpg",
-        "https://i.ibb.co/1d36Wcp/priseparole2.jpg",
+        "https://i.ibb.co/Lhn9j7Gd/a5077868-b530-4b72-b2b3-f6d51deea4b7.jpg",
         "https://i.ibb.co/VNfRtx7/priseparole3.jpg",
       ],
       content:
