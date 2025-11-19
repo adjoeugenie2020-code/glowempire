@@ -17,7 +17,7 @@ const Events = () => {
       icon: Lightbulb,
       title: "Masterclass : Esprit Entrepreneurial",
       images: [
-        "https://i.ibb.co/C5rgStGC/fecdfab6-c775-480d-8268-b19c89d3d942.jpg",
+        "https://i.ibb.co/kgb7w4f9/ec38ce0f-0f0e-4b3b-b886-3f5fe6692321.jpg",
         "https://i.ibb.co/kgb7w4f9/ec38ce0f-0f0e-4b3b-b886-3f5fe6692321.jpg",
         "https://i.ibb.co/HfdBXc7F/b71e0996-4fa9-49b9-8c58-51dae118bca9.jpg",
       ],
