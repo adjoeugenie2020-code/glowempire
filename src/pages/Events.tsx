@@ -39,8 +39,8 @@ const Events = () => {
       icon: BookOpen,
       title: "Présentation de AIVOKA – IA Juridique",
       images: [
-        "https://i.ibb.co/7tFhJs3/aivoka1.jpg",
-        "https://i.ibb.co/Yh7kx1p/aivoka2.jpg",
+        "https://i.ibb.co/Pvh8Fz7y/9f12bf82-3052-49ef-8118-c6fbd82bc9f5.jpg",
+        "https://i.ibb.co/JFCWjc2Z/dfc737b5-ed50-4d86-b1fb-fa98af1188dd.jpg",
         "https://i.ibb.co/30Bsx04/aivoka3.jpg",
       ],
       content:
@@ -50,7 +50,7 @@ const Events = () => {
       icon: Calendar,
       title: "Conférence des Femmes Leaders du Bénin – 1ʳᵉ Édition",
       images: [
-        "https://i.ibb.co/JFCWjc2Z/dfc737b5-ed50-4d86-b1fb-fa98af1188dd.jpg",
+        "https://i.ibb.co/9pTLDk7/conference1.jpg",
         "https://i.ibb.co/6RD2pXD/conference2.jpg",
         "https://i.ibb.co/cLxF8vs/conference3.jpg",
       ],
