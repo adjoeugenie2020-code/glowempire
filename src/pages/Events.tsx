@@ -28,8 +28,8 @@ const Events = () => {
       icon: Mic,
       title: "Masterclass : Prise de Parole en Public",
       images: [
-        "https://i.ibb.co/jvXWK8dF/cde81fbe-0d20-46c2-8da0-3035d18be922.jpg",
-        "https://i.ibb.co/Lhn9j7Gd/a5077868-b530-4b72-b2b3-f6d51deea4b7.jpg",
+        "https://i.ibb.co/nMTRrc0w/06d0d96d-2bad-4f01-9bf5-bcc6b068c8fa.jpg",
+        "https://i.ibb.co/Wvqz6xz4/7a15bb86-95f7-4d33-b2a8-2908e5cad63d.jpg",
         "https://i.ibb.co/5WqQHmGF/c023f71c-1871-49fc-8216-dc0d77563413.jpg",
       ],
       content:
