@@ -1,15 +1,35 @@
+/* ---------------------------
+   🌐 VARIABLES GLOBAL BRANDING
+------------------------------ */
+:root {
+  --primary: #003A68;
+  --secondary: #2AC5D7;
+}
+
+/* ---------------------------
+   GOOGLE FONT : POPPINS
+------------------------------ */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+/* ---------------------------
+   TAILWINDCSS
+------------------------------ */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ---------------------------
+   STYLES DE BASE
+------------------------------ */
 @layer base {
   body {
     @apply font-poppins;
+    background-color: #ffffff;
+    color: var(--primary);
   }
 }
 
+/* Scroll smooth sur le site */
 html {
   scroll-behavior: smooth;
 }
