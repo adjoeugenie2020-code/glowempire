@@ -30,7 +30,7 @@ const Events = () => {
       images: [
         "https://i.ibb.co/nMTRrc0w/06d0d96d-2bad-4f01-9bf5-bcc6b068c8fa.jpg",
         "https://i.ibb.co/Wvqz6xz4/7a15bb86-95f7-4d33-b2a8-2908e5cad63d.jpg",
-        "https://i.ibb.co/5WqQHmGF/c023f71c-1871-49fc-8216-dc0d77563413.jpg",
+        "https://i.ibb.co/FkLV6Jpb/0f473d35-b4aa-45e7-8604-78f42fa3ec1c.jpg",
       ],
       content:
         "Une formation pratique dédiée à l'éloquence, la confiance en soi et la communication persuasive. Les exercices interactifs ont permis aux participants de maîtriser l'art de captiver et d'influencer un auditoire.",
